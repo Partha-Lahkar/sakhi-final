@@ -31,13 +31,15 @@ class _MapscreenState extends State<Mapscreen> {
         actions: [
           if (widget.isselecting)
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pop(_pickedlocation);
+              },
               icon: const Icon(Icons.save),
             ),
         ],
       ),
       body: GoogleMap(
-        onTap: (position) {
+        onTap: !widget.isselecting?null:(position) {
           setState(() {
             _pickedlocation = position;
           });
@@ -49,13 +51,17 @@ class _MapscreenState extends State<Mapscreen> {
           ),
           zoom: 16,
         ),
-        markers:(_pickedlocation==null && widget.isselecting==true)?{}: {
-          Marker(
-            markerId: const MarkerId('m1'),
-            position:
-                _pickedlocation!=null?_pickedlocation!: LatLng(widget.location.latitude, widget.location.longtitude),
-          ),
-        },
+        markers: (_pickedlocation == null && widget.isselecting == true)
+            ? {}
+            : {
+                Marker(
+                  markerId: const MarkerId('m1'),
+                  position: _pickedlocation != null
+                      ? _pickedlocation!
+                      : LatLng(
+                          widget.location.latitude, widget.location.longtitude),
+                ),
+              },
       ),
     );
   }
