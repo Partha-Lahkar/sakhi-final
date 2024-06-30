@@ -1,12 +1,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.sakhi">
    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-   
+   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
    <application
         android:label="sakhi"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+         <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver" android:exported="true" tools:replace="android:exported">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        </intent-filter>
+    </receiver>
+   
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyAzgJDP4mNENbI30wcgi2Mvea2H7kKIJjU"/>
         <activity

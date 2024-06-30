@@ -45,6 +45,8 @@ dependencies:
   path: ^1.8.2
   sqflite: ^2.2.8+4
   path_provider: ^2.0.15
+  flutter_local_notifications: ^12.0.4 # Check for the latest version
+
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +69,13 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+  - lib/assets/initialimage.png
+  - lib/assets/findway.png
+  - lib/assets/medicine.png
+  - lib/assets/appointment.png
+
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:

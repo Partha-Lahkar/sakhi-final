@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-
+import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sakhi/screens/places.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sakhi/screens/button_screen.dart';
 
 final colorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
   seedColor: const Color.fromARGB(255, 102, 6, 247),
-  background: const Color.fromARGB(255, 56, 49, 66),
+  background: Color.fromARGB(167, 0, 0, 1),
 );
 
 final theme = ThemeData().copyWith(
@@ -43,7 +44,39 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Great Places',
       theme: theme,
-      home: const PlacesScreen(),
+      home: const SplashScreen(),
+      routes: {
+        '/places': (context) => const PlacesScreen(),
+        '/buttonScreen': (context) => const ButtonScreen(),
+      },
+    );
+  }
+}
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 5), () {
+      Navigator.of(context).pushReplacementNamed('/buttonScreen');
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Image.asset(
+            'lib/assets/initialimage.png'), // Replace with your logo
+      ),
     );
   }
 }
