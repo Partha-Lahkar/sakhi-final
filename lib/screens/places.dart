@@ -30,9 +30,10 @@ class _PlacesScreenState extends ConsumerState<PlacesScreen> {
 
   void _initializeNotifications() async {
     const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings('app_icon');
+        AndroidInitializationSettings(
+            '@mipmap/ic_launcher'); // Ensure this icon exists
 
-    const InitializationSettings initializationSettings =
+    final InitializationSettings initializationSettings =
         InitializationSettings(
       android: initializationSettingsAndroid,
     );
@@ -41,16 +42,32 @@ class _PlacesScreenState extends ConsumerState<PlacesScreen> {
     await _requestNotificationPermission();
   }
 
+  Future<void> _requestNotificationPermission() async {
+    if (Platform.isAndroid && Platform.version.contains('33')) {
+      final AndroidFlutterLocalNotificationsPlugin? androidImplementation =
+          _flutterLocalNotificationsPlugin
+              .resolvePlatformSpecificImplementation<
+                  AndroidFlutterLocalNotificationsPlugin>();
+      final bool? granted = await androidImplementation?.requestPermission();
+      if (granted != null && !granted) {
+        print("Notification permission denied");
+      }
+    }
+  }
+
   void _scheduleAlarm() {
+    print("Scheduling alarm"); // Debug print
     _timer?.cancel(); // Cancel any existing timer
     if (_isAlarmEnabled) {
-      _timer = Timer.periodic(const Duration(seconds: 30), (timer) {
+      _timer = Timer.periodic(const Duration(seconds: 10), (timer) {
+        print("Timer triggered"); // Debug print
         _showNotification();
       });
     }
   }
 
   Future<void> _showNotification() async {
+    print("Attempting to show notification"); // Debug print
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
       'alarm_channel',
@@ -64,22 +81,10 @@ class _PlacesScreenState extends ConsumerState<PlacesScreen> {
     await _flutterLocalNotificationsPlugin.show(
       0,
       'Alarm',
-      'This is your alarm notification',
+      'Dont Forget to Check your Bestie ~ Team Sakhi',
       platformChannelSpecifics,
     );
-  }
-
-  Future<void> _requestNotificationPermission() async {
-    if (Platform.isAndroid) {
-      // Android 13 and higher require permission to show notifications
-      if (Platform.isAndroid && Platform.version.contains('33')) {
-        final AndroidFlutterLocalNotificationsPlugin? androidImplementation =
-            _flutterLocalNotificationsPlugin
-                .resolvePlatformSpecificImplementation<
-                    AndroidFlutterLocalNotificationsPlugin>();
-        await androidImplementation?.requestPermission();
-      }
-    }
+    print("Notification shown"); // Debug print
   }
 
   @override
