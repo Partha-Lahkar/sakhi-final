@@ -12,22 +12,118 @@ class NurseDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Nurse Details'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Name: ${nurse.name}'),
-            Text('Phone Number: ${nurse.phoneNumber}'),
-            Text('Email: ${nurse.email}'),
-            Text('Country: ${nurse.country}'),
-            Text('State: ${nurse.state}'),
-            Text('City: ${nurse.city}'),
-            Text('Gender: ${nurse.gender}'),
-            Text('LGBTQ Friendly: ${nurse.lgbtqSupported ? 'Yes' : 'No'}'),
-            // Add logic to display gender-specific image here
+            // White box container for nurse details
+            Container(
+              width: MediaQuery.of(context).size.width * 0.8,
+              margin: EdgeInsets.only(top: 20.0),
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Gender-specific image centered with curved radius
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image.asset(
+                      nurse.gender == 'female'
+                          ? 'lib/assets/female_image.png'
+                          : 'lib/assets/male_image.png',
+                      width: 150,
+                      height: 150,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    nurse.name,
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Phone Number: ${nurse.phoneNumber}',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  SizedBox(height: 24),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildDetailRow('Country', nurse.country),
+                      _buildDetailRow('State', nurse.state),
+                      _buildDetailRow('City', nurse.city),
+                      SizedBox(height: 8),
+                      _buildDetailRow('Gender', nurse.gender),
+                      _buildDetailRow('LGBTQ Friendly', nurse.lgbtqSupported ? 'Yes' : 'No'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: () {
+                // Show a snackbar message when the button is pressed
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      'This feature is coming soon.',
+                      textAlign: TextAlign.center, // Align text to center
+                    ),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.green,
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+              child: Text(
+                'Make Appointment',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              '(Facility coming soon)',
+              style: TextStyle(fontSize: 14, fontStyle: FontStyle.italic),
+            ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildDetailRow(String fieldName, String detail) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        children: [
+          Text(
+            fieldName,
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+          SizedBox(width: 8),
+          Text(
+            detail,
+            style: TextStyle(fontSize: 16),
+          ),
+        ],
       ),
     );
   }

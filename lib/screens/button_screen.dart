@@ -136,7 +136,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/nurseList');
+                    Navigator.of(context).pushNamed('');
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
@@ -165,7 +165,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('');
+                    Navigator.of(context).pushNamed('/nurseList');
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
