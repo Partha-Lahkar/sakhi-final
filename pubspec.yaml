@@ -46,6 +46,8 @@ dependencies:
   sqflite: ^2.2.8+4
   path_provider: ^2.0.15
   flutter_local_notifications: ^12.0.4 # Check for the latest version
+  firebase_core: ^2.24.2
+  firebase_database: ^10.4.0
 
 
 dev_dependencies:
@@ -74,7 +76,8 @@ flutter:
   - lib/assets/findway.png
   - lib/assets/medicine.png
   - lib/assets/appointment.png
-
+  - lib/assets/male_image.png
+  - lib/assets/female_image.png
 
 
   # To add assets to your application, add an assets section, like this:

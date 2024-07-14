@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "182603913029",
+    "project_id": "flutterconnectsakhi",
+    "storage_bucket": "flutterconnectsakhi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182603913029:android:634bd095863b9f4a3b502c",
+        "android_client_info": {
+          "package_name": "com.example.sakhi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQr4aEybHPZ15sacro5KnTBRN5m-oaeIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

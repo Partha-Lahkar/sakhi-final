@@ -1,6 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sakhi/screens/NurseListScreen.dart';
 import 'package:sakhi/screens/places.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sakhi/screens/button_screen.dart';
@@ -28,7 +30,9 @@ final theme = ThemeData().copyWith(
   ),
 );
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -48,6 +52,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/places': (context) => const PlacesScreen(),
         '/buttonScreen': (context) => const ButtonScreen(),
+        '/nurseList': (context) => NurseListScreen(),
       },
     );
   }
