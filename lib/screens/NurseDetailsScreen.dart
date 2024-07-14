@@ -40,13 +40,31 @@ class NurseDetailsScreen extends StatelessWidget {
                   // Gender-specific image centered with curved radius
                   ClipRRect(
                     borderRadius: BorderRadius.circular(100),
-                    child: Image.asset(
-                      nurse.gender == 'female'
-                          ? 'lib/assets/female_image.png'
-                          : 'lib/assets/male_image.png',
-                      width: 150,
-                      height: 150,
-                      fit: BoxFit.cover,
+                    child: Stack(
+                      alignment: Alignment.bottomRight,
+                      children: [
+                        Image.asset(
+                          nurse.gender == 'female'
+                              ? 'lib/assets/female_image.png'
+                              : 'lib/assets/male_image.png',
+                          width: 150,
+                          height: 150,
+                          fit: BoxFit.cover,
+                        ),
+                        if (nurse.lgbtqSupported)
+                          Container(
+                            margin: EdgeInsets.only(bottom: 8, right: 60),
+                            width: 24,
+                            height: 24,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: AssetImage('lib/assets/lgbt.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                      ],
                     ),
                   ),
                   SizedBox(height: 16),

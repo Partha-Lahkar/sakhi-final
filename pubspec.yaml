@@ -78,6 +78,7 @@ flutter:
   - lib/assets/appointment.png
   - lib/assets/male_image.png
   - lib/assets/female_image.png
+  - lib/assets/lgbt.png
 
 
   # To add assets to your application, add an assets section, like this:
