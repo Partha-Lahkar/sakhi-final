@@ -48,6 +48,8 @@ dependencies:
   flutter_local_notifications: ^12.0.4 # Check for the latest version
   firebase_core: ^2.24.2
   firebase_database: ^10.4.0
+  intl: ^0.18.1
+  timezone: ^0.9.4
 
 
 dev_dependencies:
