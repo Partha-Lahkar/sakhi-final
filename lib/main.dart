@@ -6,6 +6,7 @@ import 'package:sakhi/screens/NurseListScreen.dart';
 import 'package:sakhi/screens/places.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sakhi/screens/button_screen.dart';
+import 'package:sakhi/screens/schedulescreen.dart';
 
 final colorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
         '/places': (context) => const PlacesScreen(),
         '/buttonScreen': (context) => const ButtonScreen(),
         '/nurseList': (context) => NurseListScreen(),
+        '/medicine': (context) => MedicineCalendarPage(),
       },
     );
   }

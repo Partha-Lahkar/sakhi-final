@@ -56,7 +56,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
     print("Scheduling alarm"); // Debug print
     _timer?.cancel(); // Cancel any existing timer
     if (_isAlarmEnabled) {
-      _timer = Timer.periodic(const Duration(minutes: 2), (timer) {
+      _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
         print("Timer triggered"); // Debug print
         _showNotification();
       });
@@ -136,7 +136,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('');
+                    Navigator.of(context).pushNamed('/medicine');
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
