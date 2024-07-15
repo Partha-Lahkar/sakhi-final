@@ -4,6 +4,8 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:async';
 import 'dart:io';
 
+import 'GeminiChatbotScreen.dart';
+
 class ButtonScreen extends ConsumerStatefulWidget {
   const ButtonScreen({super.key});
 
@@ -235,6 +237,16 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                     ),
                   ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.chat),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => GeminiChatbotScreen()),
+                    );
+                  },
                 ),
               ],
             ),
