@@ -1,17 +1,21 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sakhi/screens/ChatbotScreen.dart';
 import 'package:sakhi/screens/NurseListScreen.dart';
 import 'package:sakhi/screens/places.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sakhi/screens/button_screen.dart';
 import 'package:sakhi/screens/schedulescreen.dart';
 
+import 'consts.dart';
+
 final colorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
   seedColor: const Color.fromARGB(255, 102, 6, 247),
-  background: Color.fromARGB(167, 0, 0, 1),
+  background: const Color.fromARGB(167, 0, 0, 1),
 );
 
 final theme = ThemeData().copyWith(
@@ -32,6 +36,7 @@ final theme = ThemeData().copyWith(
 );
 
 void main() async {
+  Gemini.init(apiKey: GEMINI_API_KEY);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(
@@ -47,7 +52,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Great Places',
+      title: 'Sakhi',
       theme: theme,
       home: const SplashScreen(),
       routes: {
@@ -55,6 +60,7 @@ class MyApp extends StatelessWidget {
         '/buttonScreen': (context) => const ButtonScreen(),
         '/nurseList': (context) => NurseListScreen(),
         '/medicine': (context) => MedicineCalendarPage(),
+        '/chat': (context) => const ChatbotScreen(),
       },
     );
   }

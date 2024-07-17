@@ -4,8 +4,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:async';
 import 'dart:io';
 
-import 'GeminiChatbotScreen.dart';
-
 class ButtonScreen extends ConsumerStatefulWidget {
   const ButtonScreen({super.key});
 
@@ -238,15 +236,63 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     ),
                   ),
                 ),
-                IconButton(
-                  icon: const Icon(Icons.chat),
+                ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => GeminiChatbotScreen()),
-                    );
+                    Navigator.of(context).pushNamed('/chat');
                   },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 120, // Adjust size as needed
+                        height: 160, // Adjust size as needed
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          image: const DecorationImage(
+                            image: AssetImage(
+                                'lib/assets/chat-image.png'), // Replace with your image path
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                          height: 8), // Adjust spacing between image and text
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/sos');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 120, // Adjust size as needed
+                        height: 160, // Adjust size as needed
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          image: const DecorationImage(
+                            image: AssetImage(
+                                'lib/assets/appointment.png'), // Replace with your image path
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                          height: 8), // Adjust spacing between image and text
+                    ],
+                  ),
                 ),
               ],
             ),

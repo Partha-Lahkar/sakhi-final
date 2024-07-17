@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.6 <3.0.0'
+  sdk: '>=3.0.1 <3.0.2'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -48,9 +48,10 @@ dependencies:
   flutter_local_notifications: ^12.0.4 # Check for the latest version
   firebase_core: ^2.24.2
   firebase_database: ^10.4.0
-  intl: ^0.18.1
+  intl: ^0.18.0
   timezone: ^0.9.4
-
+  flutter_gemini: ^2.0.3
+  dash_chat_2: ^0.0.20
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +82,8 @@ flutter:
   - lib/assets/male_image.png
   - lib/assets/female_image.png
   - lib/assets/lgbt.png
+  - lib/assets/chatbot-img.jpg
+  - lib/assets/chat-image.png
 
 
   # To add assets to your application, add an assets section, like this:
