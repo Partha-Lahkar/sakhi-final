@@ -163,7 +163,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     ],
                   ),
                 ),
-               ElevatedButton(
+                ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pushNamed('/people');
                   },
@@ -212,6 +212,35 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                           image: const DecorationImage(
                             image: AssetImage(
                                 'lib/assets/appointment.png'), // Replace with your image path
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                          height: 8), // Adjust spacing between image and text
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/sos');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 120, // Adjust size as needed
+                        height: 160, // Adjust size as needed
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          image: const DecorationImage(
+                            image: AssetImage(
+                                'lib/assets/sos.png'), // Replace with your image path
                             fit: BoxFit.cover,
                           ),
                         ),

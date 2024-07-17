@@ -3,6 +3,7 @@ import 'package:sakhi/models/people.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/services.dart';
 import 'dart:io';
+import 'package:permission_handler/permission_handler.dart';
 
 class PersonDetailsPage extends StatelessWidget {
   final Person person;
@@ -13,17 +14,36 @@ class PersonDetailsPage extends StatelessWidget {
     Clipboard.setData(ClipboardData(text: phoneNumber));
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Phone number copied to clipboard and calling'),
+        content: Text('Phone number copied to clipboard'),
         duration: Duration(seconds: 2),
       ),
     );
-    final Uri url = Uri(scheme: 'tel', path: phoneNumber);
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
+
+    PermissionStatus permissionStatus = await Permission.phone.status;
+
+    if (permissionStatus.isDenied || permissionStatus.isRestricted) {
+      permissionStatus = await Permission.phone.request();
+    }
+
+    if (permissionStatus.isGranted) {
+      final Uri url = Uri.parse('tel:+918876315058');
+      if (await canLaunchUrl(url)) {
+        print('Launching phone dialer with number: $phoneNumber');
+        await launchUrl(url);
+      } else {
+        print('Could not launch phone dialer with number: $phoneNumber');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Could not launch phone dialer'),
+            duration: Duration(seconds: 2),
+          ),
+        );
+      }
     } else {
+      print('Phone call permission denied');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Could not launch phone dialer'),
+          content: Text('Phone call permission denied'),
           duration: Duration(seconds: 2),
         ),
       );

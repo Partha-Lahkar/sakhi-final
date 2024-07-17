@@ -51,6 +51,8 @@ dependencies:
   intl: ^0.18.1
   timezone: ^0.9.4
   url_launcher: ^6.1.11
+  shared_preferences: ^2.2.2
+  permission_handler: ^11.0.1
 
 
 dev_dependencies:
@@ -83,7 +85,7 @@ flutter:
   - lib/assets/female_image.png
   - lib/assets/lgbt.png
   - lib/assets/people.png
-
+  - lib/assets/sos.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
