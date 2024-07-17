@@ -50,6 +50,7 @@ dependencies:
   firebase_database: ^10.4.0
   intl: ^0.18.1
   timezone: ^0.9.4
+  url_launcher: ^6.1.11
 
 
 dev_dependencies:
@@ -81,6 +82,7 @@ flutter:
   - lib/assets/male_image.png
   - lib/assets/female_image.png
   - lib/assets/lgbt.png
+  - lib/assets/people.png
 
 
   # To add assets to your application, add an assets section, like this:

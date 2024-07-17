@@ -6,7 +6,7 @@ import 'package:sakhi/providers/medicine_db.dart';
 
 class AddMedicinePage extends StatefulWidget {
   final List<String> daysOfWeek;
-
+  
   const AddMedicinePage({Key? key, required this.daysOfWeek}) : super(key: key);
 
   @override

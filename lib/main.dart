@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sakhi/screens/NurseListScreen.dart';
+import 'package:sakhi/screens/peoplelist.dart';
 import 'package:sakhi/screens/places.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sakhi/screens/button_screen.dart';
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
         '/buttonScreen': (context) => const ButtonScreen(),
         '/nurseList': (context) => NurseListScreen(),
         '/medicine': (context) => MedicineCalendarPage(),
+        '/people':(context) => PeopleListPage(),
       },
     );
   }
