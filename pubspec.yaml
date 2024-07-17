@@ -52,6 +52,10 @@ dependencies:
   timezone: ^0.9.4
   flutter_gemini: ^2.0.3
   dash_chat_2: ^0.0.20
+  url_launcher: ^6.1.11
+  shared_preferences: ^2.2.2
+  permission_handler: ^11.0.1
+
 
 dev_dependencies:
   flutter_test:
@@ -82,9 +86,9 @@ flutter:
   - lib/assets/male_image.png
   - lib/assets/female_image.png
   - lib/assets/lgbt.png
-  - lib/assets/chatbot-img.jpg
   - lib/assets/chat-image.png
-
+  - lib/assets/people.png
+  - lib/assets/sos.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

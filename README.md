@@ -1,10 +1,9 @@
 # Hackathon2024
 Hackathon 2024
-## Setting up locally
-- Download Flutter SDK (v3.7.2) (has Dart 2.19.6)
+## Setting up
+- Download Flutter SDK (v3.10.1) (has Dart 3.0.1) - https://docs.flutter.dev/release/archive
 - Extract flutter/ from zip file and place at C:\ or C:\Users (path where there are no spaces)
 - Add C:\flutter\bin path to environment variables
-(To check - open command prompt -> flutter --version should work)
 - Clone project and open in VS code
 - VS Code - install Flutter extension
 

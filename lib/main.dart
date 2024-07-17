@@ -5,10 +5,12 @@ import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sakhi/screens/ChatbotScreen.dart';
 import 'package:sakhi/screens/NurseListScreen.dart';
+import 'package:sakhi/screens/peoplelist.dart';
 import 'package:sakhi/screens/places.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sakhi/screens/button_screen.dart';
 import 'package:sakhi/screens/schedulescreen.dart';
+import 'package:sakhi/screens/sos.dart';
 
 import 'consts.dart';
 
@@ -61,6 +63,8 @@ class MyApp extends StatelessWidget {
         '/nurseList': (context) => NurseListScreen(),
         '/medicine': (context) => MedicineCalendarPage(),
         '/chat': (context) => const ChatbotScreen(),
+        '/people':(context) => PeopleListPage(),
+        '/sos':(context) => MainScreen(),
       },
     );
   }
