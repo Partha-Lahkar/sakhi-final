@@ -117,8 +117,8 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 120, // Adjust size as needed
-                        height: 160, // Adjust size as needed
+                        width: 100, // Adjust size as needed
+                        height: 150, // Adjust size as needed
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10.0),
@@ -131,6 +131,10 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                       const SizedBox(
                           height: 8), // Adjust spacing between image and text
+                      const Text(
+                        'Find Way', // Placeholder for the title
+                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      ),
                     ],
                   ),
                 ),
@@ -147,8 +151,8 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 120, // Adjust size as needed
-                        height: 160, // Adjust size as needed
+                        width: 100, // Adjust size as needed
+                        height: 150, // Adjust size as needed
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           image: const DecorationImage(
@@ -160,6 +164,10 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                       const SizedBox(
                           height: 8), // Adjust spacing between image and text
+                      const Text(
+                        'Medicine', // Placeholder for the title
+                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      ),
                     ],
                   ),
                 ),
@@ -176,8 +184,8 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 120, // Adjust size as needed
-                        height: 160, // Adjust size as needed
+                        width: 100, // Adjust size as needed
+                        height: 150, // Adjust size as needed
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           image: const DecorationImage(
@@ -189,6 +197,10 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                       const SizedBox(
                           height: 8), // Adjust spacing between image and text
+                      const Text(
+                        'People', // Placeholder for the title
+                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      ),
                     ],
                   ),
                 ),
@@ -205,8 +217,8 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 120, // Adjust size as needed
-                        height: 160, // Adjust size as needed
+                        width: 100, // Adjust size as needed
+                        height: 150, // Adjust size as needed
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           image: const DecorationImage(
@@ -218,6 +230,10 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                       const SizedBox(
                           height: 8), // Adjust spacing between image and text
+                      const Text(
+                        'Nurse List', // Placeholder for the title
+                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      ),
                     ],
                   ),
                 ),
@@ -234,8 +250,8 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 120, // Adjust size as needed
-                        height: 160, // Adjust size as needed
+                        width: 100, // Adjust size as needed
+                        height: 150, // Adjust size as needed
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           image: const DecorationImage(
@@ -247,6 +263,44 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                       const SizedBox(
                           height: 8), // Adjust spacing between image and text
+                      const Text(
+                        'SOS', // Placeholder for the title
+                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+                
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/chat');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 100, // Adjust size as needed
+                        height: 150, // Adjust size as needed
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          image: const DecorationImage(
+                            image: AssetImage(
+                                'lib/assets/chat-image.png'), // Replace with your image path
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                          height: 8), // Adjust spacing between image and text
+                      const Text(
+                        'Chat', // Placeholder for the title
+                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      ),
                     ],
                   ),
                 ),
@@ -261,8 +315,8 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     primary: Colors.black, // Background color of the button
                   ),
                   child: Container(
-                    width: 120, // Adjust size as needed
-                    height: 168, // Adjust size as needed
+                    width: 100, // Adjust size as needed
+                    height: 157, // Adjust size as needed
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -292,35 +346,6 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                         ],
                       ),
                     ),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/chat');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        width: 120, // Adjust size as needed
-                        height: 160, // Adjust size as needed
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          image: const DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/chat-image.png'), // Replace with your image path
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                          height: 8), // Adjust spacing between image and text
-                    ],
                   ),
                 ),
               ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sakhi/models/nurses.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NurseDetailsScreen extends StatelessWidget {
   final Nurse nurse;
@@ -94,18 +95,7 @@ class NurseDetailsScreen extends StatelessWidget {
             ),
             SizedBox(height: 24),
             ElevatedButton(
-              onPressed: () {
-                // Show a snackbar message when the button is pressed
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      'This feature is coming soon.',
-                      textAlign: TextAlign.center, // Align text to center
-                    ),
-                    duration: Duration(seconds: 2),
-                  ),
-                );
-              },
+              onPressed: () => _launchURL('https://www.dementiauk.org/home/contact-us/'),
               style: ElevatedButton.styleFrom(
                 primary: Colors.green,
                 padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
@@ -144,5 +134,13 @@ class NurseDetailsScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
