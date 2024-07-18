@@ -3,9 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:async';
 import 'dart:io';
+import '../l10n.dart'; // Import your localization class
 
 class ButtonScreen extends ConsumerStatefulWidget {
-  const ButtonScreen({super.key});
+  final void Function(Locale) setLocale;
+
+  const ButtonScreen({super.key, required this.setLocale});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() {
@@ -93,16 +96,39 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 227, 204, 216),
+      appBar: AppBar(
+        title: Text( AppLocalizations.of(context).translate('buttonScreenTitle')),
+        actions: [
+          DropdownButton<Locale>(
+            value: Localizations.localeOf(context),
+            icon: const Icon(Icons.language),
+            onChanged: (Locale? newValue) {
+              if (newValue != null) {
+                widget.setLocale(newValue);
+              }
+            },
+            items: [
+              DropdownMenuItem(
+                value: Locale('en'),
+                child: Text('English',style: const TextStyle(color: Colors.black)),
+              ),
+              DropdownMenuItem(
+                value: Locale('de'),
+                child:  Text('German',style: const TextStyle(color: Colors.black)),
+              ),
+            ],
+          ),
+        ],
+      ),
+      backgroundColor: const Color.fromARGB(255, 227, 204, 216),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.only(
-                top: 100.0), // Adjust the top padding as needed
+            padding: const EdgeInsets.only(top: 50.0),
             child: Wrap(
               alignment: WrapAlignment.center,
-              spacing: 20.0, // Adjust spacing between buttons
-              runSpacing: 50.0, // Adjust spacing between rows
+              spacing: 20.0,
+              runSpacing: 50.0,
               children: [
                 ElevatedButton(
                   onPressed: () {
@@ -117,23 +143,21 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 100, // Adjust size as needed
-                        height: 150, // Adjust size as needed
+                        width: 100,
+                        height: 150,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10.0),
                           image: const DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/findway.png'), // Replace with your image path
+                            image: AssetImage('lib/assets/findway.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      const SizedBox(
-                          height: 8), // Adjust spacing between image and text
-                      const Text(
-                        'Find Way', // Placeholder for the title
-                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      const SizedBox(height: 8),
+                      Text(
+                         AppLocalizations.of(context).translate('findWay'),
+                        style: const TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ],
                   ),
@@ -151,22 +175,21 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 100, // Adjust size as needed
-                        height: 150, // Adjust size as needed
+                        width: 100,
+                        height: 150,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           image: const DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/medicine.png'), // Replace with your image path
+                            image: AssetImage('lib/assets/medicine.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      const SizedBox(
-                          height: 8), // Adjust spacing between image and text
-                      const Text(
-                        'Medicine', // Placeholder for the title
-                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      const SizedBox(height: 8),
+                      Text(
+                                                AppLocalizations.of(context).translate('medicine'),
+
+                        style: const TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ],
                   ),
@@ -184,22 +207,21 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 100, // Adjust size as needed
-                        height: 150, // Adjust size as needed
+                        width: 100,
+                        height: 150,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           image: const DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/people.png'), // Replace with your image path
+                            image: AssetImage('lib/assets/people.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      const SizedBox(
-                          height: 8), // Adjust spacing between image and text
-                      const Text(
-                        'People', // Placeholder for the title
-                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      const SizedBox(height: 8),
+                      Text(
+                                                 AppLocalizations.of(context).translate('people'),
+
+                        style: const TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ],
                   ),
@@ -217,22 +239,21 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 100, // Adjust size as needed
-                        height: 150, // Adjust size as needed
+                        width: 100,
+                        height: 150,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           image: const DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/appointment.png'), // Replace with your image path
+                            image: AssetImage('lib/assets/appointment.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      const SizedBox(
-                          height: 8), // Adjust spacing between image and text
-                      const Text(
-                        'Nurse List', // Placeholder for the title
-                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      const SizedBox(height: 8),
+                      Text(
+                                                 AppLocalizations.of(context).translate('nurseList'),
+
+                        style: const TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ],
                   ),
@@ -250,27 +271,25 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 100, // Adjust size as needed
-                        height: 150, // Adjust size as needed
+                        width: 100,
+                        height: 150,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           image: const DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/sos.png'), // Replace with your image path
+                            image: AssetImage('lib/assets/sos.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      const SizedBox(
-                          height: 8), // Adjust spacing between image and text
-                      const Text(
-                        'SOS', // Placeholder for the title
-                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      const SizedBox(height: 8),
+                      Text(
+                                                AppLocalizations.of(context).translate('sos'),
+
+                        style: const TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ],
                   ),
                 ),
-                
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pushNamed('/chat');
@@ -284,27 +303,26 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 100, // Adjust size as needed
-                        height: 150, // Adjust size as needed
+                        width: 100,
+                        height: 150,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           image: const DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/chat-image.png'), // Replace with your image path
+                            image: AssetImage('lib/assets/chat-image.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      const SizedBox(
-                          height: 8), // Adjust spacing between image and text
-                      const Text(
-                        'Chat', // Placeholder for the title
-                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      const SizedBox(height: 8),
+                      Text(
+                                                 AppLocalizations.of(context).translate('chat'),
+
+                        style: const TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ],
                   ),
                 ),
-                ElevatedButton(
+               ElevatedButton(
                   onPressed: () {
                     // No specific action required when the button is pressed
                   },
@@ -324,8 +342,8 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text(
-                            'Enable Alarm',
+                           Text(
+                            AppLocalizations.of(context).translate('Enable Alarm'),
                             style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white), // Text color
@@ -347,7 +365,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                     ),
                   ),
-                ),
+               ),
               ],
             ),
           ),
