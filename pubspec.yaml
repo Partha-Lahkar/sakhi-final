@@ -51,5 +51,6 @@ flutter:
     - lib/assets/chat-image.png
     - lib/assets/people.png
     - lib/assets/sos.png
+    - lib/assets/faq.png
     - lib/l10n/de.json
     - lib/l10n/en.json

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'dart:async';
 import 'dart:io';
 import '../l10n.dart'; // Import your localization class
@@ -129,7 +130,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.only(top: 50.0),
+            padding: const EdgeInsets.fromLTRB(25.0,50.0,25.0,30.0),
             child: Wrap(
               alignment: WrapAlignment.center,
               spacing: 20.0,
@@ -268,6 +269,45 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () async {
+                const url = 'https://www.dementiauk.org/information-and-support/types-of-dementia/';
+                if (await canLaunch(url)) {
+                  await launch(url);
+                } else {
+                  throw 'Could not launch $url';
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Color.fromARGB(255, 68, 204, 161),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: 100,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      image: const DecorationImage(
+                        image: AssetImage('lib/assets/faq.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Learn More',
+                    style: const TextStyle(fontSize: 16, color: Colors.black),
+                  ),
+                ],
+              ),
+            ),
+      
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pushNamed('/sos');
@@ -316,7 +356,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     children: [
                       Container(
                         width: 100,
-                        height: 150,
+                        height: 130,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           image: const DecorationImage(
