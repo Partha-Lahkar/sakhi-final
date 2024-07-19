@@ -97,11 +97,14 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text( AppLocalizations.of(context).translate('buttonScreenTitle')),
+        title:
+            Text(AppLocalizations.of(context).translate('buttonScreenTitle')),
+        backgroundColor: Color.fromARGB(255, 68, 204, 161),
         actions: [
           DropdownButton<Locale>(
             value: Localizations.localeOf(context),
-            icon: const Icon(Icons.language),
+            icon: const Icon(Icons.language, color: Colors.white),
+            dropdownColor: Colors.white,
             onChanged: (Locale? newValue) {
               if (newValue != null) {
                 widget.setLocale(newValue);
@@ -110,17 +113,19 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
             items: [
               DropdownMenuItem(
                 value: Locale('en'),
-                child: Text('English',style: const TextStyle(color: Colors.black)),
+                child: Text('English',
+                    style: const TextStyle(color: Colors.black)),
               ),
               DropdownMenuItem(
                 value: Locale('de'),
-                child:  Text('German',style: const TextStyle(color: Colors.black)),
+                child:
+                    Text('German', style: const TextStyle(color: Colors.black)),
               ),
             ],
           ),
         ],
       ),
-      backgroundColor: const Color.fromARGB(255, 227, 204, 216),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
@@ -135,6 +140,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     Navigator.of(context).pushNamed('/places');
                   },
                   style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 68, 204, 161),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -156,8 +162,9 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                         AppLocalizations.of(context).translate('findWay'),
-                        style: const TextStyle(fontSize: 16, color: Colors.white),
+                        AppLocalizations.of(context).translate('findWay'),
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
                   ),
@@ -167,6 +174,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     Navigator.of(context).pushNamed('/medicine');
                   },
                   style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 68, 204, 161),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -187,9 +195,9 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                                                AppLocalizations.of(context).translate('medicine'),
-
-                        style: const TextStyle(fontSize: 16, color: Colors.white),
+                        AppLocalizations.of(context).translate('medicine'),
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
                   ),
@@ -199,6 +207,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     Navigator.of(context).pushNamed('/people');
                   },
                   style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 68, 204, 161),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -219,9 +228,9 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                                                 AppLocalizations.of(context).translate('people'),
-
-                        style: const TextStyle(fontSize: 16, color: Colors.white),
+                        AppLocalizations.of(context).translate('people'),
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
                   ),
@@ -231,6 +240,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     Navigator.of(context).pushNamed('/nurseList');
                   },
                   style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 68, 204, 161),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -251,9 +261,9 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                                                 AppLocalizations.of(context).translate('nurseList'),
-
-                        style: const TextStyle(fontSize: 16, color: Colors.white),
+                        AppLocalizations.of(context).translate('nurseList'),
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
                   ),
@@ -263,6 +273,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     Navigator.of(context).pushNamed('/sos');
                   },
                   style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 68, 204, 161),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -283,9 +294,9 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                                                AppLocalizations.of(context).translate('sos'),
-
-                        style: const TextStyle(fontSize: 16, color: Colors.white),
+                        AppLocalizations.of(context).translate('sos'),
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
                   ),
@@ -295,6 +306,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     Navigator.of(context).pushNamed('/chat');
                   },
                   style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 68, 204, 161),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -315,14 +327,14 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                                                 AppLocalizations.of(context).translate('chat'),
-
-                        style: const TextStyle(fontSize: 16, color: Colors.white),
+                        AppLocalizations.of(context).translate('chat'),
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
                   ),
                 ),
-               ElevatedButton(
+                ElevatedButton(
                   onPressed: () {
                     // No specific action required when the button is pressed
                   },
@@ -330,7 +342,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    primary: Colors.black, // Background color of the button
+                    primary: Color.fromARGB(255, 68, 204, 161), // Background color of the button
                   ),
                   child: Container(
                     width: 100, // Adjust size as needed
@@ -342,8 +354,9 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                           Text(
-                            AppLocalizations.of(context).translate('Enable Alarm'),
+                          Text(
+                            AppLocalizations.of(context)
+                                .translate('Enable Alarm'),
                             style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white), // Text color
@@ -365,7 +378,7 @@ class _ButtonScreenState extends ConsumerState<ButtonScreen> {
                       ),
                     ),
                   ),
-               ),
+                ),
               ],
             ),
           ),

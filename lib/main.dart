@@ -19,8 +19,8 @@ import 'consts.dart';
 
 final colorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
-  seedColor: const Color.fromARGB(255, 102, 6, 247),
-  background: const Color.fromARGB(167, 0, 0, 1),
+  seedColor: Color.fromARGB(255, 255, 255, 255),
+  background: Color.fromARGB(167, 139, 255, 123),
 );
 
 final theme = ThemeData().copyWith(

@@ -47,6 +47,7 @@ class _SosSettingsScreenState extends State<SosSettingsScreen> {
         child: Column(
           children: [
             TextField(
+              style: TextStyle(color: Colors.white),
               controller: _phoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
